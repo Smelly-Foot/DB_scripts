@@ -1,0 +1,31 @@
+DB name - Students_IIPO
+Password - qwerty123
+
+create table groups(
+id serial primary key,
+name varchar not null,
+id_student int not null default 1);
+
+
+
+create table students (
+id serial primary key,
+name varchar not null,
+second_name varchar not null,
+id_group int not null,
+foreign key (id_group) references groups (id));
+
+
+
+
+insert into groups (name) values ('MOA');
+insert into students (name, second_name, id_group) values ('Alexandr','Vaisero', 1);
+
+
+
+alter table groups add foreign key (id_student) references students (id);
+
+
+
+
+insert into students (name, second_name, id_group) values ('Ivan','Ivanov', 1);
